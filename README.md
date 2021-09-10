@@ -41,7 +41,7 @@ Many companies right now are selling hardware security modules as the next new p
 
 ## Defensive Solution
 
-The developer should have used ```strncpy()``` instead of ```strcpy()``` to put the user input onto the stack. Generally, it is bad practice to assume things. ```strcpy()``` assumes that the user will not abuse the fact that the function will copy over any and all addresses it can until it finds a ```x00``` nullbyte. ```strncpy()```lets you explicitly set the amount of memory the buffer can write to. Even with a HSM it is still no substitute for good security practices.
+The developer should have used ```strncpy()``` instead of ```strcpy()``` to put the user input onto the stack. Generally, it is bad practice to assume things. ```strcpy()``` assumes that the user will not abuse the fact that the function will copy over any and all addresses unitl it finds a ```x00``` nullbyte. ```strncpy()```lets you explicitly set the amount of memory the buffer can write to. A HSM it is still no substitute for good security practices.
 
 
 
