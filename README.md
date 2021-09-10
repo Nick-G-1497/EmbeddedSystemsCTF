@@ -19,9 +19,9 @@ The program makes an interrupt service request for an interrupt service request 
 
 Therefore looking more deeply at the assembly language of the interrupt service requires we can see that it looks at higher memory addresses on the stack and executes that specific predefined interrupt handler. The next step in the process is looking up what interrupt handlers we have access to.
 
-![alt text] (./assets/int.png)
+![alt text] (int.png)
 
-![alt text] (./assets/vuln.png)
+![alt text](vuln.png)
 
 
 The fundamental vulnerability with this program is that it a program written in c using a ```strcpy()``` function. ```strcpy()``` does not explicitly define how much memory the input can have. In other word you can over write as much memory as you want. Typically this is called a buffer overflow. We can overflow the imaginary protections that the developer implemented to write to memory addresses that is previously originated on the stack before the most recent function call. We can overwrite the return address of the ```<conditional_unlock_door>``` function and return into an interrupt service request with a x7f as an argument. Describing and figuring out which addresses needed to be overwritten and why was a tedious and lengthy task, pertinent memory addresses are highlighted below. The buffer and overflowed section is from (x43ee - x4446). [x4400] is the return address we jump back to - we set this to [x454c <INT>] and call int using the [x7f argument]. In the famous words of every lazy text book author ever, the explanation is trivially left up to the reader.
