@@ -26,7 +26,7 @@ Therefore looking more deeply at the assembly language of the interrupt service 
 ![alt text] (./vuln.png)
  
  
-The fundamental vulnerability with this program is that it a program written in c using a ```strcpy()``` function. ```strcpy()``` does not explicitly define how much memory the input can have. In other word you can over write as much memory as you want. Typically this is called a buffer overflow. We can overflow the imaginary protections that the developer implemented to write to memory addresses that is previously originated on the stack before the most recent function call. We can overwrite the return address of the ```<conditional_unlock_door>``` function and return into an interrupt service request with a x7f as an argument. Describing and figuring out which addresses needed to be overwritten and why was a tedious and lengthy task, pertinent memory addresses are highlighted below. However, in the famous words of every lazy text book author ever, the explanation is trivially left up to the reader. 
+The fundamental vulnerability with this program is that it a program written in c using a ```strcpy()``` function. ```strcpy()``` does not explicitly define how much memory the input can have. In other word you can over write as much memory as you want. Typically this is called a buffer overflow. We can overflow the imaginary protections that the developer implemented to write to memory addresses that is previously originated on the stack before the most recent function call. We can overwrite the return address of the ```<conditional_unlock_door>``` function and return into an interrupt service request with a x7f as an argument. Describing and figuring out which addresses needed to be overwritten and why was a tedious and lengthy task, pertinent memory addresses are highlighted below. In the famous words of every lazy text book author ever, the explanation is trivially left up to the reader. 
 
 ![alt text](./mem.png)
 
@@ -39,7 +39,7 @@ The implications of this exploit is that even though many companies are spending
 
 ## Defensive Solution
 
-The developer should have used ```strncpy()``` instead of ```strcpy()``` to put the user input onto the stack. Generally, it is bad practice to assume things. ```strcpy()``` assumes that the user will not abuse the fact that the function will copy over address it can until it finds a ```x00``` nullbyte. ```strncpy()```lets you explicitly set the amount of memory the buffer can write to. 
+The developer should have used ```strncpy()``` instead of ```strcpy()``` to put the user input onto the stack. Generally, it is bad practice to assume things. ```strcpy()``` assumes that the user will not abuse the fact that the function will copy over address it can until it finds a ```x00``` nullbyte. ```strncpy()```lets you explicitly set the amount of memory the buffer can write to. 	
 
 
 
