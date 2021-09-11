@@ -4,7 +4,7 @@
 
 
 This capture the flag is hosted on ```https://microcorruption.com/``` 
-and was completed for educational purposes. The website hosts a series of challenges containing a fictional doorlock with fictional firmware intended to mimic the real life mistakes engineers make at low level software. The provide a fictional debugger to experiment and try and come up with a user input that corrupts the software and allow you access to whatever is hidden behind the lock. In this particular instance, the fiction product employs a second generation hardware security module. Authentication is not performed on the actual microprocessor, further more there is not specific function included in the software to jump to (there doesn't exist a function which is directly callable that allows a developer to unlock the door). The user manual for the fictional product is shown below. 
+and was completed for educational purposes. The website hosts a series of challenges containing a fictional doorlock with fictional firmware intended to mimic the real life mistakes engineers make at low level software. The site provides a fictional debugger to experiment and try and come up with a user input that corrupts the software and allow you access to whatever is hidden behind the lock. In this particular instance, the fiction product employs a second generation hardware security module. Authentication logic is not executed on the actual microprocessor, further more there is not specific function included in the software to jump to (there doesn't exist a function which is directly callable that allows a developer to unlock the door). The user manual for the fictional product is shown below. 
 
 ![alt text](./assets/manual.png)
 
