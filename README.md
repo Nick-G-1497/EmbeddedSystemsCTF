@@ -37,7 +37,7 @@ The theoretical implications of this exploit is that if improperly implemented h
 
 ## Implications of this Exploit
 
-Many companies right now are selling hardware security modules as the next new progression in security. For example, Windows 11 will require a computer hardware security module. To upgrade to Windows 11, half the world will only marginally better computers in a post-Moore's Law era which I guess is good for stonks. However, a HSM if implemented poorly, just abstracts code behind an interrupt and doesn't really protect the system. Additionally, it doesn't fix the issue of a classic buffer overflow.
+Many companies right now are selling hardware security modules as the next new progression in security. For example, Windows 11 will require a computer hardware security module. To upgrade to Windows 11, half the world will purchase only marginally better computers in a post-Moore's Law era which I guess is good for stonks. However, a HSM if implemented poorly, just abstracts code behind an interrupt and doesn't really protect the system. Additionally, it doesn't fix the issue of a classic buffer overflow.
 
 ## Defensive Solution
 
