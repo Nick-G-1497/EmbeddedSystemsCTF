@@ -31,13 +31,13 @@ The fundamental vulnerability with this program is that it a program written in 
 In python, the exploit is ```print('90'*16+'4c4599997f')``` in hex. This overflows the amount of the stack we're suppose to write to and overwrite the return address of the ```<conditional_unlock_door>``` function. We return into an interrupt service routine (ISR) and use ```x7f``` which is the universal unlock door interrupt service handler.
 
 
-The implications of this exploit is that even though many companies are spending tons of money of hardware security modules which communicate over interrupts, you still don't defend yourself from simple buffer overflow attacks.
+The theoretical implications of this exploit is that if improperly implemented hardware security modules could be a security abstraction than a real protection
 
 ![alt text](./assets/sol.png)
 
 ## Implications of this Exploit
 
-Many companies right now are selling hardware security modules as the next new progression in security. For example, Windows 11 will require a computer hardware security module. To upgrade to Windows 11, half the world will through out perfectly good computers in a post-Moore's Law era which I guess is good for stonks. However, a HSM if implemented poorly, just abstracts code behind a interrupt and doesn't really protect the system. Additionally, it doesn't fix the issue of a classic buffer overflow.
+Many companies right now are selling hardware security modules as the next new progression in security. For example, Windows 11 will require a computer hardware security module. To upgrade to Windows 11, half the world will through out perfectly good computers in a post-Moore's Law era which I guess is good for stonks. However, a HSM if implemented poorly, just abstracts code behind an interrupt and doesn't really protect the system. Additionally, it doesn't fix the issue of a classic buffer overflow.
 
 ## Defensive Solution
 
