@@ -19,7 +19,7 @@ The program makes an interrupt service request for an interrupt service request 
 
 Therefore looking more deeply at the assembly language of the interrupt service requires we can see that it looks at higher memory addresses on the stack and executes that specific predefined interrupt handler. The next step in the process is looking up what interrupt handlers we have access to.
 
-![alt text] (int.png)
+![alt text](int.png)
 
 ![alt text](vuln.png)
 
