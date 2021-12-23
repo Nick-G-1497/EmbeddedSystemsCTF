@@ -28,7 +28,7 @@ The fundamental vulnerability with this program is that it a program written in 
 
 ![alt text](./assets/mem.png)
 
-In python, the exploit is ```print('90'*16+'4c4599997f')``` in hex. This overflows the amount of the stack we're suppose to write to and overwrites the return address of the ```<conditional_unlock_door>``` function. We return into an interrupt service routine (ISR) and use ```x7f``` which is the universal unlock door interrupt service handler.
+In python, the exploit is ```print('90'*16+'4c4599997f')``` in hex or more intuitively in ascii ```LE``` . This overflows the amount of the stack we're suppose to write to and overwrites the return address of the ```<conditional_unlock_door>``` function. We return into an interrupt service routine (ISR) and use ```x7f``` which is the universal unlock door interrupt service handler.
 
 
 The theoretical implications of this exploit is that if improperly implemented hardware security modules could be a security abstraction than a real protection
